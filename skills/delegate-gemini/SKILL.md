@@ -7,7 +7,7 @@ disable-model-invocation: true
 
 # Delegate Gemini
 
-Use the local `gemini` CLI as a delegated execution lane.
+Use the local `gemini` CLI as a delegated execution lane for headless or session-based follow-up work.
 
 ## What this skill should do
 
@@ -25,8 +25,9 @@ gemini -p "$ARGUMENTS"
 ## Useful variants
 
 ```bash
-gemini -p -m gemini-2.5-pro "$ARGUMENTS"
-gemini --resume latest -p "$ARGUMENTS"
+gemini -p -m pro "$ARGUMENTS"
+gemini -r "latest" "$ARGUMENTS"
+gemini -p --output-format json "$ARGUMENTS"
 ```
 
 ## Good prompts
@@ -38,5 +39,10 @@ gemini --resume latest -p "$ARGUMENTS"
 
 ## Notes
 
+- `gemini -p` or `gemini --prompt` runs in headless mode for non-interactive execution.
+- Use `-r "latest"` or `--resume "latest"` to continue the most recent session with a new prompt.
+- Prefer model aliases like `pro`, `flash`, or `flash-lite` unless you specifically need a concrete model name.
+- Use `--output-format json` or `--output-format stream-json` for automation.
+- In the interactive CLI, session browsing and checkpoint management are available through `/resume`, with `/chat` as an alias.
 - Most setups expect `GEMINI_API_KEY` or an equivalent authenticated CLI session.
 - If Gemini CLI is missing, explain that `gemini` must be installed and authenticated first.
