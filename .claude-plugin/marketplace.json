@@ -1,0 +1,56 @@
+{
+  "name": "claude-plugin-opinionated",
+  "owner": {
+    "name": "geeknees"
+  },
+  "plugins": [
+    {
+      "name": "delegate-claude",
+      "description": "Delegate a task to a local Claude CLI to spread token usage and rate-limit pressure.",
+      "source": "./",
+      "skills": ["./skills/delegate-claude"],
+      "version": "0.2.0",
+      "author": {
+        "name": "geeknees"
+      },
+      "category": "workflow",
+      "strict": false
+    },
+    {
+      "name": "delegate-codex",
+      "description": "Delegate a task to OpenAI Codex CLI to spread token usage and rate-limit pressure.",
+      "source": "./",
+      "skills": ["./skills/delegate-codex"],
+      "version": "0.2.0",
+      "author": {
+        "name": "geeknees"
+      },
+      "category": "workflow",
+      "strict": false
+    },
+    {
+      "name": "delegate-gemini",
+      "description": "Delegate a task to Google Gemini CLI to spread token usage and rate-limit pressure.",
+      "source": "./",
+      "skills": ["./skills/delegate-gemini"],
+      "version": "0.2.0",
+      "author": {
+        "name": "geeknees"
+      },
+      "category": "workflow",
+      "strict": false
+    },
+    {
+      "name": "delegate-copilot",
+      "description": "Delegate a task to GitHub Copilot CLI to spread token usage and rate-limit pressure.",
+      "source": "./",
+      "skills": ["./skills/delegate-copilot"],
+      "version": "0.2.0",
+      "author": {
+        "name": "geeknees"
+      },
+      "category": "workflow",
+      "strict": false
+    }
+  ]
+}
