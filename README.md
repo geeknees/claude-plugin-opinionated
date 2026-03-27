@@ -1,6 +1,6 @@
 # claude-plugin-opinionated
 
-A minimal Claude Code marketplace repo for delegating work to other local AI CLIs. It is to hand work off to another lane so token usage and rate-limit pressure can be spread across tools.
+These plugins provide `/delegate-*` commands for getting second opinions from other AI assistants.
 
 Included skills:
 
@@ -55,6 +55,29 @@ npx skills add geeknees/claude-plugin-opinionated --skill delegate-codex
 npx skills add geeknees/claude-plugin-opinionated --skill delegate-gemini
 npx skills add geeknees/claude-plugin-opinionated --skill delegate-copilot
 ```
+
+## Usage
+
+After installing a skill, use the matching `/delegate-*` command with a focused request. Keep the request concrete and include the relevant diff, code, error output, or design context.
+
+| Skill | What it does | Default command |
+|-------|---------------|-----------------|
+| `delegate-claude` | Uses the local Claude CLI as a second execution lane. | `claude -p "$ARGUMENTS"` |
+| `delegate-codex` | Uses OpenAI Codex CLI as a second execution lane. | `codex exec "$ARGUMENTS"` |
+| `delegate-gemini` | Uses Google Gemini CLI as a second execution lane. | `gemini -p "$ARGUMENTS"` |
+| `delegate-copilot` | Uses GitHub Copilot CLI as a second execution lane. | `copilot -p "$ARGUMENTS" --allow-all-tools` |
+
+Example requests:
+
+```text
+/delegate-claude Review this diff for correctness, edge cases, and maintainability.
+/delegate-codex Suggest a smaller implementation for this feature.
+/delegate-gemini Diagnose why this test suite is flaky.
+/delegate-copilot Compare this approach with a queue-based design.
+```
+
+Each skill expects the corresponding local CLI to be installed and authenticated first.
+
 ## Notes
 
 - Each skill is intentionally minimal and delegates to the corresponding local CLI.
