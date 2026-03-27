@@ -22,6 +22,15 @@ Use the local `claude` CLI as a delegated execution lane.
 claude -p "$ARGUMENTS"
 ```
 
+## Useful variants
+
+```bash
+claude -p --model sonnet "$ARGUMENTS"
+claude -c -p "$ARGUMENTS"
+claude -p --output-format json "$ARGUMENTS"
+claude -p --max-turns 3 "$ARGUMENTS"
+```
+
 ## Good prompts
 
 - Review this diff for correctness, edge cases, and maintainability.
@@ -31,6 +40,10 @@ claude -p "$ARGUMENTS"
 
 ## Notes
 
-- Prefer `--model` only when there is a clear reason.
+- `claude -p` is Claude Code print mode for non-interactive execution.
+- Use `-c` or `--continue` when you want the most recent conversation in the current directory.
+- Prefer `--model sonnet` or `--model opus` only when there is a clear reason.
+- Use `--output-format json` when downstream tooling needs structured output.
+- Use `--max-turns` to cap agentic work in automated flows.
 - Keep prompts concrete and include code or context when available.
 - If Claude CLI is missing, explain that `claude` must be installed and authenticated first.
