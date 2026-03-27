@@ -9,6 +9,15 @@ Included skills:
 - `delegate-gemini`
 - `delegate-copilot`
 
+## Plugins
+
+| Plugin | Type | Description |
+|--------|------|-------------|
+| delegate-claude | Plugin + Skill | Delegate a task to a local Claude CLI to spread token usage and rate-limit pressure. |
+| delegate-codex | Plugin + Skill | Delegate a task to OpenAI Codex CLI to spread token usage and rate-limit pressure. |
+| delegate-gemini | Plugin + Skill | Delegate a task to Google Gemini CLI to spread token usage and rate-limit pressure. |
+| delegate-copilot | Plugin + Skill | Delegate a task to GitHub Copilot CLI to spread token usage and rate-limit pressure. |
+
 ## Repo layout
 
 ```text
