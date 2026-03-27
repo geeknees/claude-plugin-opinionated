@@ -78,6 +78,8 @@ Example requests:
 
 Each skill expects the corresponding local CLI to be installed and authenticated first.
 
+Provide Gemini with the relevant diff, file contents, or error output up front when you use `delegate-gemini` for code review or debugging. In many headless setups, Gemini cannot freely inspect the workspace, so a bare "review this repo" prompt is brittle.
+
 ## Notes
 
 - Each skill is intentionally minimal and delegates to the corresponding local CLI.

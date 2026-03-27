@@ -11,10 +11,11 @@ Use the local `gemini` CLI as a delegated execution lane for headless or session
 
 ## What this skill should do
 
-1. Turn the request into a concise Gemini prompt.
-2. Hand the work off to Gemini in non-interactive mode.
-3. Return the output and mention the model when explicitly set.
-4. Pull out the most actionable recommendations.
+1. Gather the required local context before invoking Gemini.
+2. Turn the request and that context into a concise Gemini prompt.
+3. Hand the work off to Gemini in non-interactive mode.
+4. Return the output and mention the model when explicitly set.
+5. Pull out the most actionable recommendations.
 
 ## Default command
 
@@ -45,4 +46,8 @@ gemini -p --output-format json "$ARGUMENTS"
 - Use `--output-format json` or `--output-format stream-json` for automation.
 - In the interactive CLI, session browsing and checkpoint management are available through `/resume`, with `/chat` as an alias.
 - Most setups expect `GEMINI_API_KEY` or an equivalent authenticated CLI session.
+- In the prompt, tell Gemini to answer from the supplied context first.
+- When the task is code review, bug diagnosis, or implementation feedback, include the relevant diff, file contents, command output, or error text in the prompt instead of expecting Gemini to discover everything itself.
+- A bare `/delegate-gemini Code review this repo` request is likely to fail in setups that restrict Gemini's built-in tools or non-interactive approvals.
+- If Gemini reports unauthorized tool calls, rerun with a prompt that embeds the needed repository context and explicitly asks for a direct answer without exploratory delegation.
 - If Gemini CLI is missing, explain that `gemini` must be installed and authenticated first.

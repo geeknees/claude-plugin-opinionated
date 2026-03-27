@@ -33,7 +33,7 @@
       "description": "Delegate a task to Google Gemini CLI to spread token usage and rate-limit pressure.",
       "source": "./",
       "skills": ["./skills/delegate-gemini"],
-      "version": "0.2.0",
+      "version": "0.2.1",
       "author": {
         "name": "geeknees"
       },
